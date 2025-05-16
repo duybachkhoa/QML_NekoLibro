@@ -1,4 +1,4 @@
-//file quản lý các cửa sổ hiển thị chính: Login/Resister
+//file quản lý các cửa sổ hiển thị chính: Login/Resister/
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts

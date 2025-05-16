@@ -1,0 +1,25 @@
+# Các thư mục build (có thể thay đổi tuỳ theo tên)
+build*/
+
+# Các file cấu hình máy người dùng
+*.pro.user
+*.pro.user.*
+
+# Thư mục chứa binary
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.app
+*.a
+
+# Các file tạm
+*.autosave
+*.qmlproject.user
+*.qmake.stash
+
+# VSCode hoặc QtCreator
+.vscode/
+.idea/
+

@@ -15,7 +15,6 @@ public:
 public slots:
     void login(const QString &username, const QString &password);
     void createAccount(const QString &email, const QString &username, const QString &password, const QString &fullname);
-    void test(QObject *username, QObject *pass);
 signals:
     void showMessage( const QString &page, const QString &message, const QString &color, bool isSuccess);
 };

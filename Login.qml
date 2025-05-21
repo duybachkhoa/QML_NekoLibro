@@ -4,16 +4,6 @@ import QtQuick.Layouts
 Rectangle {
     color: "lightblue"
     visible: true
-    Timer{
-        id: loginTimer
-        interval: 2000
-        repeat: false
-        onTriggered: {
-            busyLogin.running = false
-            replaceS("NekoLibro.qml", StackView.Immediate);
-        }
-    }
-
     ColumnLayout{
         anchors.centerIn: parent
         spacing: 10
@@ -75,11 +65,35 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
             }
             onClicked: {
-                busyLogin.running = true
-                loginTimer.start()
-                messageLabel.text = "Đăng nhập thành công."
-                messageLabel.color = "green"
+                login.test(usernameField, passwordField)
             }
+            //Xử lý thông báo đăng nhập
+            Connections {
+                target: login
+                function onShowMessage(page, message, color, success) {
+                    if (page !== "Login") return
+                    messageLabel.text = message
+                    messageLabel.color = color
+                    if (success){
+                        busyLogin.running = true
+                        loginTimer.start()
+                    }
+                }
+            }
+            //Thời gian chờ đăng nhập(Có thể bỏ)
+            Timer{
+                id: loginTimer
+                interval: 2000
+                repeat: false
+                onTriggered: {
+                    busyLogin.running = false
+                    replaceS("NekoLibro.qml", StackView.Immediate);
+                }
+            }
+        }
+        Label{
+            id: messageLabel
+            font.pixelSize: 20
         }
         Button{
             text: "Quên mật khẩu?"
@@ -122,10 +136,6 @@ Rectangle {
                 }
                 onClicked: pushS("Register.qml")
             }
-        }
-        Label{
-            id: messageLabel
-            font.pixelSize: 20
         }
     }//ColumnLayout
     BusyIndicator{

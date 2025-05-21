@@ -1,4 +1,4 @@
-//file quản lý các trang hiển thị: Home/Product/Sell/Staff/Account
+//file quản lý các trang hiển thị: Home/Product/Sell/Staff/Account/
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15

@@ -18,7 +18,9 @@ Rectangle {
         } // Text
         Text {
             text: "Interface"
-            color: "#"
+            color: "#1C71D8"
+            font.bold: true
+
         } // Text
         ComboBox {
             id: languageCB

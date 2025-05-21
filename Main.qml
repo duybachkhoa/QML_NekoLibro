@@ -47,7 +47,7 @@ ApplicationWindow {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: "NekoLibro.qml"
+        initialItem: "Login.qml"
     }
     //hàm chuyển màn hình
     function pushS(screen){

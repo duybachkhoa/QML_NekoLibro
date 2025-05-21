@@ -5,6 +5,7 @@ project(qml_vs_cpp VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Sql)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -17,17 +18,21 @@ qt_add_qml_module(appqml_vs_cpp
     VERSION 1.0
     QML_FILES
         Main.qml
-    SOURCES test.h test.cpp
+        SOURCES
     RESOURCES res.qrc
     SOURCES
     QML_FILES Login.qml
     QML_FILES Register.qml
     QML_FILES NekoLibro.qml
-    QML_FILES ProductPage.qml
-    QML_FILES AccountPage.qml
-    QML_FILES SellPage.qml
-    QML_FILES StaffPage.qml
-    QML_FILES HomePage.qml
+    #QML_FILES AccountPage.qml
+    #QML_FILES ProductPage.qml
+    #QML_FILES SellPage.qml
+    #QML_FILES StaffPage.qml
+    #QML_FILES HomePage.qml
+    #QML_FILES SettingPage.qml
+    SOURCES
+    SOURCES login.h login.cpp
+    SOURCES database.h database.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -43,6 +48,7 @@ set_target_properties(appqml_vs_cpp PROPERTIES
 
 target_link_libraries(appqml_vs_cpp
     PRIVATE Qt6::Quick
+    PRIVATE Qt6::Sql
 )
 
 include(GNUInstallDirs)
